@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Yizi — design tokens
+   Structure ported from the Ritual.com design system; color world swapped
+   for six Palm Springs / SoCal palettes (see assets/css/README of palettes
+   in yizi-image-prompts.md).
+
+   Role mapping, Ritual -> Yizi:
+     navy  #142B6F  -> --ink        (body copy, headings, primary CTA)
+     muted #62719F  -> --ink-muted  (secondary text, inactive icons)
+     yellow#FFD600  -> --accent     (pills, tags, highlights)
+     cream #FCF8EE  -> --cream      (page ground)
+     grey  #F5F7F8  -> --surface    (hero / section bands)
+   ========================================================================== */
+
+:root {
+  /* ---- type ---- */
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif; /* italic display accent */
+
+  /* ---- radius ---- */
+  --radius-pill: 9999px;
+  --radius-lg: 16px;
+  --radius-md: 8px;
+  --radius-sm: 4px;
+
+  /* ---- elevation ---- */
+  --shadow-card: 0 2px 19px -4px rgb(20 20 20 / 0.10);
+  --shadow-lift: 0 10px 30px -12px rgb(20 20 20 / 0.28);
+  --focus-ring: 0 0 0 4px color-mix(in srgb, var(--accent) 55%, transparent);
+
+  /* ---- layout ---- */
+  --container: 1440px;
+  --gutter: 20px;
+
+  /* ---- semantic (constant across palettes) ---- */
+  --success: #4C840D;
+  --star: #E6B139;
+  --star-track: color-mix(in srgb, var(--ink) 14%, transparent);
+}
+
+@media (min-width: 768px)  { :root { --gutter: 40px; } }
+@media (min-width: 1024px) { :root { --gutter: 64px; } }
+
+/* ==========================================================================
+   Palettes — each sets the same seven roles.
+   --swatch-* are the untouched source hexes, shown in the palette switcher.
+   --ink is derived: the palette's darkest swatch, darkened where the raw
+   value could not hold 4.5:1 against --cream (Mimosa, Sunflower Sky).
+   ========================================================================== */
+
+/* 1 · Blossom — sage, dusty rose, greige, moss, cocoa */
+[data-palette="blossom"] {
+  --ink: #52413B;
+  --ink-muted: #806D65;
+  --accent: #DCB8C2;
+  --accent-100: #EDDCE1;
+  --accent-050: #F7EFF1;
+  --accent-2: #9B8E42;
+  --accent-ink: #7C7235;          /* moss olive — secondary tag */
+  --on-accent: #52413B;
+  --cream: #FAF6F2;
+  --surface: #F1EDE6;
+  --surface-2: #E7EEDF;         /* sage band */
+  --border: #DCD2CA;
+  --swatch-1: #BECCB0; --swatch-2: #DCB8C2; --swatch-3: #BBB0A5;
+  --swatch-4: #9B8E42; --swatch-5: #52413B;
+}
+
+/* 2 · Mimosa (spring equinox) — golden, sage, sky, olive, butter */
+[data-palette="mimosa"] {
+  --ink: #3B4720;
+  --ink-muted: #6B784A;
+  --accent: #E3BD21;
+  --accent-100: #F0DE93;
+  --accent-050: #FAF3D6;
+  --accent-2: #98A564;
+  --accent-ink: #6F7849;
+  --on-accent: #3B4720;
+  --cream: #FCFAF0;
+  --surface: #F2F5EA;
+  --surface-2: #E0EFF7;         /* pale sky band */
+  --border: #D5DCC2;
+  --swatch-1: #98A564; --swatch-2: #E3BD21; --swatch-3: #E0EFF7;
+  --swatch-4: #6E823C; --swatch-5: #E2D362;
+}
+
+/* 3 · Citrus Grove — marigold, terracotta, forest, khaki, oat */
+[data-palette="citrus"] {
+  --ink: #2F4429;
+  --ink-muted: #64744F;
+  --accent: #E5AF31;
+  --accent-100: #F2DCA4;
+  --accent-050: #FAF2DC;
+  --accent-2: #CD8436;
+  --accent-ink: #9E662A;          /* terracotta */
+  --on-accent: #2F4429;
+  --cream: #FBF8EE;
+  --surface: #F2F1E0;
+  --surface-2: #E7E6C9;         /* oat band */
+  --border: #D4D3A6;
+  --swatch-1: #E5AF31; --swatch-2: #CD8436; --swatch-3: #2F4429;
+  --swatch-4: #6A6F35; --swatch-5: #D4D3A6;
+}
+
+/* 4 · Sunflower Sky — sunflower, cerulean, tangerine, leaf, rust */
+[data-palette="sunflower"] {
+  --ink: #1D4E80;
+  --ink-muted: #527599;
+  --accent: #F6DC27;
+  --accent-100: #FBEE93;
+  --accent-050: #FDF8D0;
+  --accent-2: #B96722;
+  --accent-ink: #AC6020;          /* burnt rust */
+  --on-accent: #1D4E80;
+  --cream: #FBFAF3;
+  --surface: #EDF3F9;
+  --surface-2: #E6F0DC;         /* leaf band */
+  --border: #C6D8E8;
+  --swatch-1: #3C7EC2; --swatch-2: #F6DC27; --swatch-3: #DC9339;
+  --swatch-4: #A3C684; --swatch-5: #B96722;
+}
+
+/* 5 · Solstice — golden, amber, leaf, forest, pine */
+[data-palette="solstice"] {
+  --ink: #2B442D;
+  --ink-muted: #5D7A5F;
+  --accent: #EBD03B;
+  --accent-100: #F5E79A;
+  --accent-050: #FBF6D8;
+  --accent-2: #E5AE2E;
+  --accent-ink: #906E1D;          /* amber */
+  --on-accent: #2B442D;
+  --cream: #FBFAEF;
+  --surface: #EEF2E9;
+  --surface-2: #E2EBDC;
+  --border: #C9D6C4;
+  --swatch-1: #EBD03B; --swatch-2: #E5AE2E; --swatch-3: #5C8849;
+  --swatch-4: #396236; --swatch-5: #2B442D;
+}
+
+/* 6 · Honey Field (chamomile & bee) — honey, amber, dove, pine, espresso */
+[data-palette="honey"] {
+  --ink: #21201B;
+  --ink-muted: #6B6659;
+  --accent: #E6B139;
+  --accent-100: #F2DDA8;
+  --accent-050: #FAF3E1;
+  --accent-2: #A37450;
+  --accent-ink: #936848;          /* honey caramel */
+  --on-accent: #21201B;
+  --cream: #FAF8F4;
+  --surface: #EDEFF0;           /* dove */
+  --surface-2: #EBE3D6;
+  --border: #D8D3C7;
+  --swatch-1: #A37450; --swatch-2: #E6B139; --swatch-3: #EDEFF0;
+  --swatch-4: #244F31; --swatch-5: #21201B;
+}
